@@ -1,0 +1,343 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata & Resep - Asilla Dwi May Fatikha</title>
+  <style>
+    /* === Gaya Biodata Profil === */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, #ffb6c1, #ff69b4, #ff1493);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .love {
+      position: absolute;
+      width: 20px; height: 20px;
+      background: red; transform: rotate(45deg);
+      animation: floatUp 8s linear infinite;
+      opacity: 0.6;
+    }
+    .love::before, .love::after {
+      content: "";
+      position: absolute;
+      width: 20px; height: 20px;
+      border-radius: 50%; background: red;
+    }
+    .love::before { top: -10px; left: 0; }
+    .love::after { left: -10px; top: 0; }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.6; }
+      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
+    header {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      color: white; padding: 40px 20px;
+      border-radius: 0 0 30px 30px;
+      backdrop-filter: blur(8px);
+    }
+    header img {
+      width: 150px; height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      margin-bottom: 15px;
+    }
+    header h1 { margin: 10px 0 5px; font-size: 26px; }
+    header p { font-size: 16px; margin: 0; }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      position: relative; z-index: 1;
+    }
+    section { margin-bottom: 25px; }
+    section h2 {
+      color: #d6336c; font-size: 20px;
+      border-bottom: 2px solid #f2f2f2;
+      padding-bottom: 6px; margin-bottom: 15px;
+    }
+    ul { list-style: none; padding: 0; }
+    ul li { margin-bottom: 8px; line-height: 1.6; }
+    footer {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      color: white; padding: 15px;
+      margin-top: 40px;
+      backdrop-filter: blur(6px);
+      border-radius: 20px 20px 0 0;
+    }
+    .foto-sejajar {
+      display: flex; gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .foto-sejajar img {
+      width: 200px; height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #ff69b4;
+    }
+    :root{--bg:#f7f7fb;--card:#ffffff;--accent:#2b6cb0;--muted:#6b7280}
+    .container{max-width:900px; margin:36px auto; padding:24px}
+    header.modern{display:flex;align-items:center;gap:16px;justify-content:center}
+    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,#e6eefc,#f3f8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:1.3rem}
+    h1{margin:0;font-size:1.8rem}
+    p.lead{margin:8px 0 0;color:var(--muted)}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin-top:18px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .section-title{font-weight:700;margin-bottom:8px;color:var(--accent);font-size:1.2rem}
+    .skills p{margin:0 0 12px}
+    .footer-modern{margin-top:24px;text-align:center;color:var(--muted);font-size:0.9rem}
+    .meta{font-size:0.95rem;color:#333}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600;transition:0.3s}
+    .btn:hover{background:#1e4e8c}
+
+    /* === Gaya Resep === */
+    :root{
+      --shadow: 0 6px 18px rgba(16,24,40,0.06);
+    }
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#ffe1ef,#ffd4e9);display:flex;align-items:center;justify-content:center;font-weight:700;color:#d6336c}
+    .controls{display:flex;gap:8px;margin-top:14px}
+    .btn.ghost{background:transparent;color:#d6336c;border:1px solid rgba(214,51,108,0.15)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+    @media (max-width:820px){.grid{grid-template-columns:1fr}}
+    .card{background:#fff;border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+    h2{color:#d6336c;font-size:1.1rem;margin-bottom:8px}
+    .recipe-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;color:#555;font-size:0.95rem}
+    .divider{height:1px;background:#eee;margin:16px 0;border-radius:4px}
+    ul,ol{margin:0 0 12px 18px}
+    footer.resep{margin-top:22px;text-align:center;color:#555;font-size:0.95rem}
+    @media print {
+      body{background:white}
+      .controls, .logo{display:none}
+      .wrap{max-width:100%;padding:0}
+    }
+  </style>
+</head>
+<body>
+  <!-- Efek Love -->
+  <script>
+    function createLove() {
+      const love = document.createElement("div");
+      love.classList.add("love");
+      document.body.appendChild(love);
+      love.style.left = Math.random() * window.innerWidth + "px";
+      love.style.top = window.innerHeight + "px";
+      setTimeout(() => { love.remove(); }, 8000);
+    }
+    setInterval(createLove, 500);
+  </script>
+
+  <!-- BAGIAN 1: Biodata -->
+  <header>
+    <img src="sila1.jpeg" alt="Foto Profil">
+    <h1>Asilla Dwi May Fatikha</h1>
+    <p>Pelajar TKJ | SMK Ma’arif NU Tirto</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Identitas Pribadi</h2>
+      <ul>
+        <li><b>Nama Lengkap:</b> Asilla Dwi May Fatikha</li>
+        <li><b>Tempat, Tanggal Lahir:</b> Pekalongan, 01 Mei 2009</li>
+        <li><b>Jenis Kelamin:</b> Perempuan</li>
+        <li><b>Agama:</b> Islam</li>
+        <li><b>Kewarganegaraan:</b> Indonesia</li>
+        <li><b>Alamat Lengkap:</b> Desa Karang Jompo, Kecamatan Tirto, Kabupaten Pekalongan, Jawa Tengah</li>
+        <li><b>Email:</b> asillaafatikha@gmail.com</li>
+        <li><b>Nomor Telepon:</b> 085647382933</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Data Pendidikan</h2>
+      <ul>
+        <li><b>TK:</b> PGRI Karang Jompo</li>
+        <li><b>SD/MI:</b> MIS Karang Jompo</li>
+        <li><b>MTs:</b> SMP ITTQ Simbang Kulon, Gg.3</li>
+        <li><b>SMK:</b> SMK Ma’arif NU Tirto, Kabupaten Pekalongan</li>
+        <li><b>Jurusan:</b> Teknik Komputer dan Jaringan (TKJ)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Hobi & Keahlian</h2>
+      <ul>
+        <li><b>Hobi:</b> Bermain</li>
+        <li><b>Keahlian:</b> Dasar-dasar jaringan komputer, kreativitas desain</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Cita-cita & Motivasi</h2>
+      <ul>
+        <li><b>Cita-cita:</b> Dokter</li>
+        <li><b>Motto Hidup:</b> "Kehidupan yang besar dimulai dari mimpi yang besar"</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- BAGIAN 2: Profil Modern -->
+  <div class="container">
+    <header class="modern">
+      <div class="avatar">AS</div>
+      <div>
+        <h1>Asilla Dwi May Fatikha</h1>
+        <p class="lead">Profil singkat — keterampilan di bidang teknik jaringan komputer dan memasak.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="section-title">Tentang Saya</div>
+        <p class="meta">Saya adalah seorang pelajar yang memiliki minat besar di bidang teknologi informasi, khususnya teknik jaringan komputer, sekaligus memiliki keterampilan dalam memasak.</p>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Keterampilan — Teknik Jaringan Komputer</div>
+        <div class="skills">
+          <p>Saya mampu melakukan instalasi perangkat jaringan dasar seperti router, switch, dan access point.</p>
+          <p>Saya dapat melakukan konfigurasi IP address, DHCP, dan sharing jaringan, serta troubleshooting sederhana.</p>
+          <p>Saya memahami dasar keamanan jaringan, seperti password kuat, segmentasi, dan firewall dasar.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Keterampilan — Memasak</div>
+        <div class="skills">
+          <p>Saya mampu mengolah bahan makanan dari persiapan hingga penyajian, termasuk tumis sayur, sop ayam, gorengan, dan nasi goreng.</p>
+          <p>Menguasai teknik dasar memasak seperti merebus, menumis, menggoreng, dan mengukus.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Pendidikan & Pengalaman</div>
+        <p class="meta">Sedang menempuh pendidikan di bidang TKJ, serta aktif membantu keluarga dalam memasak.</p>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Dokumentasi (Foto)</div>
+        <div class="foto-sejajar">
+          <img src="sayuran.jpeg" alt="Foto 1">
+          <img src="nasi goreng.jpeg" alt="Foto 2">
+        </div>
+      </section>
+
+      <!-- === BAGIAN 3: Resep Masakan === -->
+      <div class="wrap">
+        <header>
+          <div class="logo">AS</div>
+          <div>
+            <h1>Resep Masakan — Asilla</h1>
+            <p class="lead">Nasi Goreng • Sayur Sop Jagung • Ayam Goreng • Sambal</p>
+            <div class="controls">
+              <button class="btn" onclick="window.print()">Cetak / Simpan PDF</button>
+              <button class="btn ghost" onclick="scrollToTop()">Kembali ke Atas</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="grid">
+          <!-- Artikel resep sama persis -->
+          <!-- Nasi Goreng -->
+          <article class="card" id="nasi-goreng">
+            <h2>Nasi Goreng</h2>
+            <div class="recipe-meta"><div>Porsi: 2</div><div>Waktu: ~15 menit</div></div>
+            <div class="divider"></div>
+            <div class="sub">Bahan-bahan</div>
+            <ul>
+              <li>2 piring nasi putih dingin</li>
+              <li>2 butir telur ayam</li>
+              <li>3 siung bawang putih</li>
+              <li>5 siung bawang merah</li>
+              <li>3 sdm kecap manis</li>
+              <li>1 sdm saus tiram</li>
+              <li>Garam & merica secukupnya</li>
+              <li>Minyak untuk menumis</li>
+            </ul>
+            <div class="sub">Langkah-langkah</div>
+            <ol>
+              <li>Tumis bawang, masukkan telur.</li>
+              <li>Tambahkan nasi dan bumbu, aduk rata.</li>
+              <li>Sajikan dengan daun bawang dan kerupuk.</li>
+            </ol>
+          </article>
+
+          <!-- Sayur Sop Jagung -->
+          <article class="card" id="sop-jagung">
+            <h2>Sayur Sop Jagung</h2>
+            <div class="recipe-meta"><div>Porsi: 3-4</div><div>Waktu: ~30 menit</div></div>
+            <div class="divider"></div>
+            <div class="sub">Bahan-bahan</div>
+            <ul>
+              <li>1 jagung manis</li>
+              <li>2 wortel</li>
+              <li>1 kentang</li>
+              <li>Seledri, daun bawang</li>
+              <li>Bumbu: bawang merah, bawang putih, merica, garam</li>
+            </ul>
+            <div class="sub">Langkah-langkah</div>
+            <ol>
+              <li>Rebus air, masukkan bumbu halus.</li>
+              <li>Tambahkan sayuran, masak hingga empuk.</li>
+              <li>Bumbui, masukkan daun bawang & seledri.</li>
+            </ol>
+          </article>
+
+          <!-- Ayam Goreng -->
+          <article class="card" id="ayam-goreng">
+            <h2>Ayam Goreng</h2>
+            <div class="recipe-meta"><div>Porsi: 4</div><div>Waktu: ~60 menit</div></div>
+            <div class="divider"></div>
+            <div class="sub">Bahan-bahan</div>
+            <ul>
+              <li>1 ekor ayam</li>
+              <li>Bumbu: bawang putih, kunyit, jahe, ketumbar</li>
+              <li>Lengkuas, daun salam, garam</li>
+            </ul>
+            <div class="sub">Langkah-langkah</div>
+            <ol>
+              <li>Haluskan bumbu, lumuri ayam.</li>
+              <li>Rebus dengan lengkuas & salam, lalu goreng.</li>
+            </ol>
+          </article>
+
+          <!-- Sambal -->
+          <article class="card" id="sambal">
+            <h2>Sambal</h2>
+            <div class="recipe-meta"><div>Porsi: sesuai selera</div><div>Waktu: ~15 menit</div></div>
+            <div class="divider"></div>
+            <div class="sub">Bahan-bahan</div>
+            <ul>
+              <li>Cabai merah, cabai rawit</li>
+              <li>Bawang merah, bawang putih</li>
+              <li>Tomat, gula, garam</li>
+            </ul>
+            <div class="sub">Langkah-langkah</div>
+            <ol>
+              <li>Goreng bahan sebentar.</li>
+              <li>Haluskan, tumis kembali.</li>
+              <li>Bumbui, sajikan.</li>
+            </ol>
+          </article>
+        </div>
+
+        <div style="margin-top:
+```
